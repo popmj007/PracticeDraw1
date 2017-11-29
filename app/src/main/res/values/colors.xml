@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="shapeOne">#F44336</color>
+    <color name="shapeTwo">#FFC107</color>
+    <color name="shapeThree">#9C27B0</color>
+    <color name="shapeFour">#9E9E9E</color>
+    <color name="shapeFive">#009688</color>
+    <color name="shapeSix">#2196F3</color>
+
+    <color name="lineColor">#C2C2C2</color>
+</resources>
