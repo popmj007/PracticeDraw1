@@ -111,6 +111,7 @@ public class Practice11PieChartView extends View {
         float angle = 0;
         for (Data item : mDatas) {
             mPaint.setStyle(Paint.Style.FILL);
+            //扫过的角度
             sweepAngle = item.getNum() / total * 360;
             halfAngle = sweepAngle * 0.5f + angle;
             mPaint.setColor(getResources().getColor(item.getColor()));
@@ -124,6 +125,7 @@ public class Practice11PieChartView extends View {
 
             if (max == item.getNum()) {
                 canvas.save();
+                //改变画布的原点,在改变之前需要对画布的状态进行保存
                 canvas.translate(lineStartX * 0.1f, lineStartY * 0.1f);
             }
             canvas.drawArc(rect, angle, sweepAngle - 2, true, mPaint);
@@ -133,12 +135,15 @@ public class Practice11PieChartView extends View {
             canvas.drawLine(lineStartX, lineStartY, lineEndX, lineEndY, mPaint);
             if (halfAngle > 90 && halfAngle < 270) {
                 canvas.drawLine(lineEndX, lineEndY, lineEndX - 50, lineEndY, mPaint);
-                mPaint.setTextSize(15);
+                mPaint.setTextSize(30);
+//                LEFT	左对齐 基线X在文本左侧，基线y在文本下方，文本出现在给定坐标的右侧，是默认的对齐方式
+//                RIGHT	右对齐 基线x在文本右侧，基线y在文本下方，文本出现在给定坐标的左侧
+//                CENTER	居中对齐 基线x在文本中间，基线y在文本下方，文本出现在给定坐标的两侧
                 mPaint.setTextAlign(Paint.Align.RIGHT);
                 canvas.drawText(item.getName(), lineEndX - 50, lineEndY, mPaint);
             } else {
                 canvas.drawLine(lineEndX, lineEndY, lineEndX + 50, lineEndY, mPaint);
-                mPaint.setTextSize(15);
+                mPaint.setTextSize(30);
                 mPaint.setTextAlign(Paint.Align.LEFT);
                 canvas.drawText(item.getName(), lineEndX + 50, lineEndY, mPaint);
             }
